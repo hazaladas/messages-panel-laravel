@@ -16,20 +16,20 @@
                     <th>ID</th>
                     <th>Ad Soyad</th>
                     <th>Email</th>
-                    <th>Konu</th>
                     <th>Mesaj</th>
                     <th>Oluşturulma</th>
+                    <th>Okundu bilgisi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($messages as $message)
                 <tr>
                     <td>{{ $message->id }}</td>
-                    <td>{{ $message->name }}</td>
-                    <td>{{ $message->email }}</td>
-                    <td>{{ $message->subject }}</td>
+                    <td>{{ $message->user_name }}</td>
+                    <td>{{ $message->user_mail }}</td>
                     <td>{{ Str::limit($message->message, 50) }}</td>
                     <td>{{ $message->created_at->format('d.m.Y H:i') }}</td>
+                    <td>{{ $message->is_read ? 'Okundu' : 'Okunmadı'}}</td>
                 </tr>
                 @endforeach
             </tbody>
