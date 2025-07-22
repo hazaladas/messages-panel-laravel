@@ -11,4 +11,6 @@ Route::get('/messages', [MessageController::class, 'index'])->name('messages.ind
 
 Route::post('/messages/{id}/toggle-read', [MessageController::class, 'toggleRead'])
     ->name('messages.toggleRead');
+
+Route::get('/messages/{id}', [MessageController::class, 'show'])->name('message.show');
 ?>

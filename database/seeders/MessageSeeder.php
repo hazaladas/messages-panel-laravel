@@ -12,6 +12,9 @@ class MessageSeeder extends Seeder
 {
     public function run(): void
     {
+        // Tablodaki tüm verileri siler güncel olan tüm verileri ekler 
+        Message::truncate();
+
         Message::insert([
             [
                 'user_name' => 'Hazal Adaş',
@@ -37,6 +40,22 @@ class MessageSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
+            [
+                'user_name' => 'elif',
+                'user_mail' => 'elif@gmail.com',
+                'message' => 'güzel olmuş',
+                'is_read' => false,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'user_name' => 'irem',
+                'user_mail' => 'irem@gmail.com',
+                'message' => 'api eklenecek.',
+                'is_read' => false,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]
         ]);
     }
 }

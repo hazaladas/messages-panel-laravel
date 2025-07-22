@@ -39,6 +39,17 @@ class MessageController extends Controller
 
        }
 
+       //sıralama
+       if($request->has('sort')){
+        $sort = $request->input('sort');
+        $direction = $request->input('direction', 'asc');
+        $query->orderBy($sort, $direction);
+       }
+
+       //sayfalama
+       $messages = $query->paginate(10); // her sayfada 10 mesaj gösteerir
+       return view('messages.index', compact('messages'));
+
        //sorguya göre mesajları getirme
        $messages = $query->get();
        //view a gönderiri
@@ -56,6 +67,11 @@ class MessageController extends Controller
         $message->save();
         //sayfaya geri döner
         return redirect()->back()->with('success', 'okundu bilgisi güncellendi');
+    }
+
+    public function show($id){
+        $message = Message::findOrFail($id);
+        return view('messages.show', compact('message'));
     }
     
 }
