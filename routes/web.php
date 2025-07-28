@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\UserRegisterController;
+use App\Http\Controllers\UserDashboardController;
+use App\Http\Controllers\UserMessageController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('home');
@@ -24,4 +27,11 @@ Route::get('/logout', [UserAuthController::class, 'logout'])->name('user.logout'
 
 Route::get('/register',[UserRegisterController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register',[UserRegisterController::class, 'register'])-> name('register');
+
+Route::get('/user/dashboard', function(){
+    return view('user.dashboard');
+})->middleware('auth')->name('user.dashboard');
+
+Route::post('/user/send-message', [UserMessageController::class, 'store'])->middleware('auth')->name('user.message.send');
+
 ?>
