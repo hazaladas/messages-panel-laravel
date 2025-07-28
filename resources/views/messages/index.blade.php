@@ -14,9 +14,18 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-dark bg-dark mb-4">
-        <div class="container-fluid">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
             <span class="navbar-brand mb-0 h1"><i class="bi bi-speedometer2 me-2"></i>Admin Dashboard</span>
             <span class="text-white-50">Mesaj Yönetim Paneli</span>
+            <div>
+                {{-- Navbar kısmına eklenmeli --}}
+                @if(session()->has('user_name'))
+                    <span class="me-2 text-white">Hoşgeldin, {{ session('user_name') }}</span>
+                    <a href="{{ route('user.logout') }}" class="btn btn-sm btn-outline-danger">Çıkış</a>
+                @else
+                    <a href="{{ route('user.login') }}" class="btn btn-sm btn-outline-primary">Kullanıcı Giriş</a>
+                @endif
+            </div>
         </div>
     </nav>
 

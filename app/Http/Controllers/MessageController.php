@@ -40,10 +40,12 @@ class MessageController extends Controller
        }
 
        //sıralama
-       if($request->has('sort')){
-        $sort = $request->input('sort');
-        $direction = $request->input('direction', 'asc');
-        $query->orderBy($sort, $direction);
+       $allowedSorts = ['id', 'user_name', 'user_mail', 'message', 'created_at'];
+       $sort = $request->input('sort');
+       $direction = $request->input('direction', 'asc');
+
+       if ($sort && in_array($sort, $allowedSorts)) {
+           $query->orderBy($sort, $direction);
        }
 
        //sayfalama
