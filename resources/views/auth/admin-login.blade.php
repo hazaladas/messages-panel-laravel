@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kullanıcı Girişi - Mesaj Paneli</title>
+    <title>Admin Giriş - Mesaj Paneli</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
             position: relative;
@@ -31,9 +31,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(240, 147, 251, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(245, 87, 108, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(79, 172, 254, 0.3) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
             animation: float 20s ease-in-out infinite;
             z-index: -1;
         }
@@ -85,7 +85,7 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(135deg, #f093fb, #f5576c, #4facfe, #f093fb);
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #667eea);
             border-radius: 32px;
             z-index: -1;
             opacity: 0.3;
@@ -105,14 +105,14 @@
         .logo-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
             box-shadow: 
-                0 20px 40px rgba(240, 147, 251, 0.3),
+                0 20px 40px rgba(102, 126, 234, 0.3),
                 0 0 0 4px rgba(255, 255, 255, 0.2);
             animation: logoPulse 2s ease-in-out infinite;
         }
@@ -130,7 +130,7 @@
         .main-title {
             font-size: 2.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -172,8 +172,8 @@
 
         .form-control:focus {
             outline: none;
-            border-color: #f093fb;
-            box-shadow: 0 0 0 3px rgba(240, 147, 251, 0.1);
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
             background: rgba(255, 255, 255, 0.95);
         }
 
@@ -184,9 +184,9 @@
             font-weight: 600;
             border-radius: 16px;
             border: none;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.3);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -210,7 +210,7 @@
 
         .btn-login:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(240, 147, 251, 0.4);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
             color: white;
         }
 
@@ -228,27 +228,20 @@
             border-left: 4px solid #dc3545;
         }
 
-        .links-section {
+        .back-link {
             margin-top: 30px;
             text-align: center;
         }
 
-        .links-section a {
+        .back-link a {
             color: #6c757d;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
-            margin: 0 15px;
         }
 
-        .links-section a:hover {
-            color: #f093fb;
-        }
-
-        .register-link {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(108, 117, 125, 0.2);
+        .back-link a:hover {
+            color: #667eea;
         }
 
         @media (max-width: 768px) {
@@ -263,11 +256,6 @@
 
             .subtitle {
                 font-size: 1rem;
-            }
-
-            .links-section a {
-                display: block;
-                margin: 10px 0;
             }
         }
 
@@ -287,30 +275,26 @@
         <div class="login-card">
             <div class="logo-section">
                 <div class="logo-icon">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-shield-alt"></i>
                 </div>
-                <h1 class="main-title">Kullanıcı Girişi</h1>
-                <p class="subtitle">Hesabınıza giriş yapın ve mesajlaşmaya başlayın</p>
+                <h1 class="main-title">Admin Girişi</h1>
+                <p class="subtitle">Yönetici paneline erişim için giriş yapın</p>
             </div>
 
-            @if ($errors->any())
+            @if(session('error'))
                 <div class="alert alert-danger">
                     <i class="fas fa-exclamation-triangle me-2"></i>
-                    <ul class="mb-0">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                    {{ session('error') }}
                 </div>
             @endif
 
-            <form action="{{ route('user.login') }}" method="POST">
+            <form method="POST" action="{{ route('admin.login.submit') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="email" class="form-label">
-                        <i class="fas fa-envelope me-2"></i>E-posta Adresi
+                    <label for="admin_name" class="form-label">
+                        <i class="fas fa-user me-2"></i>Admin Adı
                     </label>
-                    <input type="email" id="email" name="email" class="form-control" required>
+                    <input type="text" id="admin_name" name="admin_name" class="form-control" required>
                 </div>
 
                 <div class="form-group">
@@ -325,16 +309,10 @@
                 </button>
             </form>
 
-            <div class="links-section">
+            <div class="back-link">
                 <a href="{{ route('home') }}">
                     <i class="fas fa-arrow-left me-2"></i>Ana Sayfaya Dön
                 </a>
-                
-                <div class="register-link">
-                    <a href="{{ route('register.form') }}">
-                        <i class="fas fa-user-plus me-2"></i>Hesap Oluştur
-                    </a>
-                </div>
             </div>
         </div>
     </div>

@@ -1,16 +1,15 @@
 <?php
 
+use App\Http\Controllers\AdminAuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\UserRegisterController;
-use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\UserMessageController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
 
@@ -34,4 +33,12 @@ Route::get('/user/dashboard', function(){
 
 Route::post('/user/send-message', [UserMessageController::class, 'store'])->middleware('auth')->name('user.message.send');
 
+Route::middleware('auth', 'admin')->group((function(){
+    Route::get('/admin/dashboard',[MessageController::class, 'index'])->name('admin.dashboard');
+    
+}));
+
+Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+
+Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
 ?>

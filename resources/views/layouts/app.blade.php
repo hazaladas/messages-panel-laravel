@@ -10,6 +10,9 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <div class="container">
             <a class="navbar-brand" href="/">Mesaj Paneli</a>
+            <div class="ms-auto">
+                <a href="{{ route('user.logout') }}" class="btn btn-primary">Çıkış Yap</a>
+            </div>
         </div>
     </nav>
     <main>

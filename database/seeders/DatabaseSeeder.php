@@ -16,6 +16,15 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'role' => 'user',
+        ]);
+
+        // Admin kullanıcısı oluştur
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('password'),
+            'role' => 'admin',
         ]);
 
         $this->call([
