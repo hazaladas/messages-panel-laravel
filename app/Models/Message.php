@@ -14,6 +14,7 @@ class Message extends Model
 
     //doldurulabilir (mass-assignable) alanlar
     protected $fillable = [
+        'user_id',
         'user_name',
         'user_mail',
         'message',

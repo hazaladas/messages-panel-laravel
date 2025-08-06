@@ -327,6 +327,34 @@
                 </button>
             </form>
         </div>
+        <!-- Kullanıcının gönderdiği mesajlar bölümü -->
+        <div class="dashboard-card mt-4" style="max-width: 800px; width: 100%; margin: 0 auto;">
+            <h2 class="mt-2 mb-3 text-lg fw-semibold" style="font-size: 1.3rem;">Gönderilen Mesajlar</h2>
+            @if ($messages->isEmpty())
+                <p>Henüz mesajınız yok.</p>
+            @else
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped align-middle mt-2">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Mesaj</th>
+                                <th scope="col">Tarih</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($messages as $message)
+                                <tr>
+                                    <td>{{ $message->id }}</td>
+                                    <td>{{ $message->message }}</td>
+                                    <td>{{ $message->created_at->format('d.m.Y H:i') }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @endif
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -27,9 +27,7 @@ Route::get('/logout', [UserAuthController::class, 'logout'])->name('user.logout'
 Route::get('/register',[UserRegisterController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register',[UserRegisterController::class, 'register'])-> name('register');
 
-Route::get('/user/dashboard', function(){
-    return view('user.dashboard');
-})->middleware('auth')->name('user.dashboard');
+Route::get('/user/dashboard', [UserMessageController::class, 'dashboard'])->middleware('auth')->name('user.dashboard');
 
 Route::post('/user/send-message', [UserMessageController::class, 'store'])->middleware('auth')->name('user.message.send');
 

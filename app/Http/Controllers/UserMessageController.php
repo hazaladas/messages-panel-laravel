@@ -24,4 +24,10 @@ class UserMessageController extends Controller
         return redirect()->route('user.dashboard')->with('success','mesajınız gönderildi');
 
     }
+
+    public function dashboard(){
+        $user = Auth::user();
+        $messages = $user->messages()->latest()->get();
+        return view('user.dashboard', compact('user', 'messages'));
+    }
 }

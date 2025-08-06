@@ -385,7 +385,7 @@
                 @endif
 
                 <form method="POST" action="{{ route('register') }}" id="registerForm">
-        @csrf
+                    @csrf
 
                     <div class="form-floating">
                         <input type="text" class="form-control @error('name') is-invalid @enderror" 
