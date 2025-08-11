@@ -17,6 +17,7 @@ class MessageSeeder extends Seeder
 
         Message::insert([
             [
+                'user_id' => 1,
                 'user_name' => 'Hazal Adaş',
                 'user_mail' => 'hazal@gmail.com',
                 'message' => 'Sistemde bir hata ile karşılaşıyorum.',
@@ -25,6 +26,7 @@ class MessageSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
+                'user_id' => 2,
                 'user_name' => 'burak',
                 'user_mail' => 'burak@gmail.com',
                 'message' => 'Yeni özellik eklenebilir.',
@@ -33,6 +35,7 @@ class MessageSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
+                'user_id' => 3,
                 'user_name' => 'melisa',
                 'user_mail' => 'melisa@gmail.com',
                 'message' => 'gecikme var.',
@@ -41,6 +44,7 @@ class MessageSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
+                'user_id' => 4,
                 'user_name' => 'elif',
                 'user_mail' => 'elif@gmail.com',
                 'message' => 'güzel olmuş',
@@ -49,6 +53,7 @@ class MessageSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
+                'user_id' => 5,
                 'user_name' => 'irem',
                 'user_mail' => 'irem@gmail.com',
                 'message' => 'api eklenecek.',

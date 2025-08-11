@@ -3,26 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
+use Src\Exception\CreateMessageException;
+use Src\Trait\MessageServiceTrait;
 
 class UserMessageController extends Controller
 {
+    use MessageServiceTrait;
+
+    /**
+     * @throws CreateMessageException
+     */
     public function store(Request $request){
         $request->validate([
             'message' => 'required|string|max:500',
         ]);
 
-        Message::create([
-            'user_id' => Auth::id(),  //oturum açmış kullanıcının id sini alır 
-            'user_name' => Auth::user()->name,
-            'user_mail' => Auth::user()->email,
-            
-            'message' => $request->message  //formdan gelen mesajı alır
-        ]);
+        try {
+            $this->getMessageService()->createMessage(
+                Auth::id(),
+                Auth::user()->name,
+                Auth::user()->email,
+                $request->message
+            );
+        } catch (CreateMessageException $exception) {
+            throw new CreateMessageException('Sistemde sorun var sonra dene: ' . $exception->getMessage());
+        }
 
         return redirect()->route('user.dashboard')->with('success','mesajınız gönderildi');
-
     }
 
     public function dashboard(){
